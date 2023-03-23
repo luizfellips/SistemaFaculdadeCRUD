@@ -1,0 +1,10 @@
+.tabela-matriculas{
+    text-align: center;
+}
+
+.tabela-matriculas th{
+    padding: 15px;
+}
+.tabela-matriculas td{
+    padding: 15px;
+}

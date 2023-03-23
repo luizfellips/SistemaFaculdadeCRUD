@@ -1,0 +1,16 @@
+
+
+
+
+
+
+   .tabela-estudantes{
+    text-align: center;
+}
+
+.tabela-estudantes th{
+    padding: 15px;
+}
+.tabela-estudantes td{
+    padding: 15px;
+}

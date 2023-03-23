@@ -1,0 +1,10 @@
+.tabela-cursos{
+    text-align: center;
+}
+
+.tabela-cursos th{
+    padding: 15px;
+}
+.tabela-cursos td{
+    padding: 15px;
+}
