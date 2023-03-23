@@ -32,6 +32,7 @@ if(isset($_POST['CPF'])  && isset($_POST['Curso']) && isset($_POST['Formacao']))
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="../src/js/formacao_dinamica.js"></script>
+    <script src="../src/js/cpf_mascara.js"></script>
     <title>Alterar curso</title>
 </head>
 
@@ -41,7 +42,7 @@ if(isset($_POST['CPF'])  && isset($_POST['Curso']) && isset($_POST['Formacao']))
         <div class="login" id="login">
             <h1>Alterar curso do aluno</h1>
             <form action="alterar.php" method="POST">
-                <input type="number" name="CPF" placeholder="Insira o seu CPF para mudar o curso" required autofocus>
+                <input type="number" name="CPF" onkeypress="mask(this,cpf)" maxlength="14"  placeholder="Insira o seu CPF para mudar o curso" required autofocus>
                 <select name="Curso" id="curso">
                     <option>Escolha um curso</option>
                     <?php

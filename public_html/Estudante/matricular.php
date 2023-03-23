@@ -34,6 +34,7 @@ if(isset($_POST['Nome']) && isset($_POST['CPF']) && isset($_POST['Curso']) && is
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="../src/js/formacao_dinamica.js"></script>
+    <script src="../src/js/cpf_mascara.js"></script>
     <title>Matricular Aluno</title>
 </head>
 
@@ -44,7 +45,7 @@ if(isset($_POST['Nome']) && isset($_POST['CPF']) && isset($_POST['Curso']) && is
             <h1>Novo Registro</h1>
             <form action="matricular.php" method="POST">
                 <input type="text" name="Nome" placeholder="Insira seu nome" required autofocus>
-                <input type="text" name="CPF" placeholder="Insira seu CPF" required autofocus>
+                <input type="text" name="CPF" onkeypress="mask(this,cpf)" maxlength="14"  placeholder="Insira seu CPF" required autofocus>
                 <select name="Curso" id="curso">
                     <option>Escolha um curso</option>
                     <?php

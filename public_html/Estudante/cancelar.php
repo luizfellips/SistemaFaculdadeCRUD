@@ -22,6 +22,7 @@ if(isset($_POST['CPF'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/css/index.css">
     <link rel="stylesheet" href="../src/css/matricular.css">
+    <script src="../src/js/cpf_mascara.js"></script>
     <title>Cancelar matrícula</title>
 </head>
 
@@ -31,7 +32,7 @@ if(isset($_POST['CPF'])){
         <div class="login" id="login">
             <h1>Cancelar Matrícula</h1>
             <form action="cancelar.php" method="POST">
-                <input type="text" name="CPF" placeholder="Insira o seu CPF para cancelar sua matrícula." required autofocus>
+                <input type="text" name="CPF" onkeypress="mask(this,cpf)" maxlength="14" placeholder="Insira o seu CPF para cancelar sua matrícula." required autofocus>
                 <input class="btn btn-primary" type="submit" value="Cancelar Matrícula">
             </form>
             <a href="../Gerenciamento/estudantes.php">Voltar</a></p>
