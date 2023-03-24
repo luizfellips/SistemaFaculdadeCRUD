@@ -22,7 +22,7 @@ $matriculas = Matricula::getMatriculas();
             <tr>
                 <th>ID Matrícula</th>
                 <th>ID Estudante</th>
-                <th>ID Curso</th>
+                <th>Status da matrícula</th>
                 <th>Data de Matrícula</th>
         </tr>
             
@@ -38,7 +38,7 @@ $matriculas = Matricula::getMatriculas();
                         <?php echo $matriculas[$i]['Estudante_ID'] ?>
                     </td>
                     <td>
-                        <?php echo $matriculas[$i]['Curso_ID'] ?>
+                        <?php echo (($matriculas[$i]['Status'] == 1) ? "Ativo" : "Desligado") ?>
                     </td>
                     <td>
                         <?php echo $matriculas[$i]['DataMatricula'] ?>

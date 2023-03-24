@@ -11,7 +11,7 @@ if(isset($_POST['Nome']) && isset($_POST['CPF']) && isset($_POST['Curso']) && is
     $formacao = $_POST['Formacao'];
 
     try {
-        $estudante = EstudanteFactory::NovoEstudantePadrao($nome,$cpf,$curso,$formacao);
+        $estudante = EstudanteFactory::NovoEstudante($nome,$cpf,$curso,$formacao);
         EstudanteFactory::MatricularEstudante($estudante);
         header("Location: ../estudantes.php");
         exit;

@@ -5,13 +5,14 @@ if(isset($_POST['CPF'])){
     $CPF = $_POST['CPF'];
 
         
-    $Estudante = EstudanteFactory::NovoEstudante($CPF);
+    $Estudante = EstudanteFactory::BuscarEstudantePorCPF($CPF);
     EstudanteFactory::CancelarMatricula($Estudante);
     header("Location: ../estudantes.php");
     exit;
     
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

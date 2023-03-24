@@ -10,7 +10,7 @@ if(isset($_POST['CPF'])  && isset($_POST['Curso']) && isset($_POST['Formacao']))
     $Curso_Desejado_ID = Curso::getCursoID($curso,$formacao);
 
     try {
-        $estudante = EstudanteFactory::NovoEstudante($CPF);
+        $estudante = EstudanteFactory::BuscarEstudantePorCPF($CPF);
         EstudanteFactory::AlterarCurso($estudante,$Curso_Desejado_ID);
         header("Location: ../estudantes.php");
     } catch (\Throwable $th) {
@@ -42,7 +42,7 @@ if(isset($_POST['CPF'])  && isset($_POST['Curso']) && isset($_POST['Formacao']))
         <div class="login" id="login">
             <h1>Alterar curso do aluno</h1>
             <form action="alterar.php" method="POST">
-                <input type="number" name="CPF" onkeypress="mask(this,cpf)" maxlength="14"  placeholder="Insira o seu CPF para mudar o curso" required autofocus>
+                <input type="text" name="CPF" onkeypress="mask(this,cpf)" maxlength="14"  placeholder="Insira o seu CPF para mudar o curso" required autofocus>
                 <select name="Curso" id="curso">
                     <option>Escolha um curso</option>
                     <?php

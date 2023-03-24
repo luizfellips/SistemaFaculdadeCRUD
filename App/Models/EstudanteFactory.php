@@ -2,23 +2,28 @@
 namespace App\Models;
 class EstudanteFactory{
     
-    public static function NovoEstudantePadrao($Nome, $CPF, $Curso, $Formacao){
-        $estudante = new EstudantePadrao($Nome,$CPF,$Curso,$Formacao);
+    public static function NovoEstudante($Nome, $CPF, $Curso, $Formacao){
+        $estudante = new Estudante($Nome,$CPF,$Curso,$Formacao);
         return $estudante;
     }
 
-    public static function NovoEstudante($CPF){
+    public static function BuscarEstudantePorCPF($CPF){
         $connection = \Modules\Connection::getConnection();
-        $sql = "select Curso_ID from curso where Curso_ID = (select Curso_ID from estudante where CPF = :CPF)";
+        $sql = "select t1.Nome, t1.CPF, t2.Nome as Curso, t2.Formação
+        from estudante as t1
+        inner join curso t2 on t1.Curso_ID = t2.Curso_ID
+        where CPF = :CPF";
         $stmt = $connection->prepare($sql);
-        $stmt->bindValue(":CPF",$CPF);
+        $stmt->bindValue(":CPF", $CPF);
         $stmt->execute();
-        $Curso = $stmt->fetch(\PDO::FETCH_ASSOC);
-        $estudante = new Estudante($CPF,$Curso['Curso_ID']);
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $estudante = new Estudante($result['Nome'],$result['CPF'],$result['Curso'],$result['Formação']);
         return $estudante;
+
+        
     }
 
-    public static function MatricularEstudante(EstudantePadrao $estudante){
+    public static function MatricularEstudante(Estudante $estudante){
         $nome = $estudante->getNome();
         $CPF = $estudante->getCPF();
         $curso = $estudante->getCurso();
@@ -36,10 +41,8 @@ class EstudanteFactory{
     {
         $connection = \Modules\Connection::getConnection();
         $CPF = $estudante->getCPF();
-        $Curso_ID = $estudante->getCurso();
-        $stmt = $connection->prepare('CALL CancelarMatricula(?,?)');
+        $stmt = $connection->prepare('CALL CancelarMatricula(?)');
         $stmt->bindParam(1,$CPF,\PDO::PARAM_STR);
-        $stmt->bindParam(2,$Curso_ID,\PDO::PARAM_INT);
         $stmt->execute();
 
     }
@@ -48,12 +51,10 @@ class EstudanteFactory{
     {
         $connection = \Modules\Connection::getConnection();
         $CPF = $estudante->getCPF();
-        $Curso_Antigo_ID = $estudante->getCurso();
         
-        $stmt = $connection->prepare('CALL AlterarCurso(?,?,?)');
+        $stmt = $connection->prepare('CALL AlterarCurso(?,?)');
         $stmt->bindParam(1,$CPF,\PDO::PARAM_STR);
-        $stmt->bindParam(2,$Curso_Antigo_ID,\PDO::PARAM_INT);
-        $stmt->bindParam(3,$Curso_Desejado_ID,\PDO::PARAM_INT);
+        $stmt->bindParam(2,$Curso_Desejado_ID,\PDO::PARAM_INT);
         $stmt->execute();
 
     }
