@@ -16,7 +16,7 @@
         <h1>Gerenciamento Geral</h1>
         <ul class="gerenciamento">
             <li><a href="Gerenciamento/estudantes.php">Gerenciar estudantes</a></li>
-            <li><a href="">Gerenciar disciplinas</a></li>
+            <li><a href="Gerenciamento/disciplinas.php">Gerenciar disciplinas</a></li>
             <li><a href="">Gerenciar professores</a></li>
         </ul>
     </main>
