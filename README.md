@@ -4,7 +4,7 @@ This is a C.R.U.D that manages students, disciplines and professors, made in PHP
 
 
 ## Tecnologias | Technologies
-- PHP
+- PHP ( P.O.O )
 - Javascript
 - JQuery
 - HTML
