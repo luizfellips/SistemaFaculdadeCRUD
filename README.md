@@ -1,6 +1,6 @@
 # Sistema de faculdade CRUD
-Um C.R.U.D de gerenciamento de estudantes, disciplinas e professores feito em PHP e JS.
-This is a C.R.U.D that manages students, disciplines and professors, made in PHP and JS.
+- Um C.R.U.D de gerenciamento de estudantes, disciplinas e professores feito em PHP e JS.
+- This is a C.R.U.D that manages students, disciplines and professors, made in PHP and JS.
 
 
 ## Tecnologias | Technologies
