@@ -12,6 +12,7 @@ This is a C.R.U.D that manages students, disciplines and professors, made in PHP
 - MySQL
 
 ## Funcionalidades | Functionalities
+- Visualizar matrículas ativas e desligadas | View active and deactivated students registrations
 - Gerenciamento de estudantes(Visualizar, matricular, cancelar matrícula e atualizar curso) | Student management(complete c.r.u.d)
 - Gerenciamento de disciplinas ( Visualizar, adicionar novo curso, cancelar curso) | Discipline management(Read, Add and Delete)
 
